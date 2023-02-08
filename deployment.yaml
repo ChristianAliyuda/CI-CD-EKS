@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: hello-world
+    app.kubernetes.io/instance: hello-world
+    app.kubernetes.io/version: '1.23'
+    app.kubernetes.io/managed-by: kubectl
+  name: hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+        - image: 832413549269.dkr.ecr.eu-west-1.amazonaws.com/hello-world:latest
+          imagePullPolicy: Always
+          name: hello-world
+          ports:
+            - containerPort: 3000
