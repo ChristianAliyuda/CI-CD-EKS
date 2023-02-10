@@ -40,7 +40,7 @@ phases:
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
       - echo Push the latest image to cluster
       - aws eks update-kubeconfig --region $AWS_DEFAULT_REGION --name $AWS_CLUSTER_NAME
-      - kubectl apply -f eks_cicd/deployment.yaml
-      - kubectl rollout restart -f eks_cicd/deployment.yaml
+      - kubectl apply -f deployment.yaml
+      - kubectl rollout restart -f deployment.yaml
 
 
