@@ -31,6 +31,7 @@ jobs:
         ECR_REPOSITORY: hello-world
         IMAGE_TAG: latest
       run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/m0g7s6n5
           docker build -t helloworld .
           docker tag helloworld:latest public.ecr.aws/m0g7s6n5/helloworld:latest
           docker push public.ecr.aws/m0g7s6n5/helloworld:latest
