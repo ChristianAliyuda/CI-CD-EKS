@@ -31,8 +31,10 @@ jobs:
         ECR_REPOSITORY: hello-world
         IMAGE_TAG: latest
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
-        docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
+          docker build -t helloworld .
+          docker tag helloworld:latest public.ecr.aws/m0g7s6n5/helloworld:latest
+          docker push public.ecr.aws/m0g7s6n5/helloworld:latest
+          
   #  - name: Update kube config
    #   run: aws eks update-kubeconfig --name (name of the cluster) --region (name of the region)
 
