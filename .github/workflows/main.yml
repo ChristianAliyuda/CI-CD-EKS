@@ -48,6 +48,6 @@ jobs:
       run: |
         kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
-        kubectl rollout restart -f deployment.yml
+        kubectl rollout restart -f deployment.yaml
         
  
