@@ -41,13 +41,13 @@ jobs:
           docker tag helloworld:latest public.ecr.aws/m0g7s6n5/helloworld:latest
           docker push public.ecr.aws/m0g7s6n5/helloworld:latest
           
-  #  - name: Update kube config
-   #   run: aws eks update-kubeconfig --name (name of the cluster) --region (name of the region)
+    - name: Update kube config
+      run: aws eks update-kubeconfig --name hello-world --region eu-west-1
 
-  #  - name: Deploy image to Amazon EKS
-   #   run: |
-    #    kubectl apply -f eks/aws-auth.yaml
-     #   kubectl apply -f eks/deployment.yaml
-      #  kubectl apply -f eks/service.yaml
+    - name: Deploy image to Amazon EKS
+      run: |
+        kubectl apply -f eks/aws-auth.yaml
+        kubectl apply -f eks/deployment.yaml
+        kubectl apply -f eks/service.yaml
       #  kubectl apply -f eks/issuer.yaml
       #  kubectl apply -f eks/ingress.yaml
